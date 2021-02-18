@@ -40,6 +40,8 @@ spec:
               description: "\tCleanup     Cleanup `json:\"cleanup,omitempty\"` //
                 TODO"
               type: string
+            influxdb:
+              type: string
             parallelism:
               format: int32
               type: integer

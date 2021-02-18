@@ -20,11 +20,12 @@ import (
 
 // K6Spec defines the desired state of K6
 type K6Spec struct {
-	Script      string  `json:"script"`
-	Parallelism int32   `json:"parallelism"`
-	Separate    bool    `json:"separate,omitempty"`
-//	Cleanup     Cleanup `json:"cleanup,omitempty"` // TODO
-	Arguments   string  `json:"arguments,omitempty"`
+	Script      string `json:"script"`
+	Parallelism int32  `json:"parallelism"`
+	Separate    bool   `json:"separate,omitempty"`
+	//	Cleanup     Cleanup `json:"cleanup,omitempty"` // TODO
+	Arguments string `json:"arguments,omitempty"`
+	InfluxDB string `json:"influxdb,omitempty"`
 }
 
 // Cleanup allows for automatic cleanup of resources pre or post execution

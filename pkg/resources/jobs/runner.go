@@ -29,6 +29,10 @@ func NewRunnerJob(k *v1alpha1.K6, index int) (*batchv1.Job, error) {
 	if k.Spec.Arguments != "" {
 		command = append(command, k.Spec.Arguments)
 	}
+	if k.Spec.InfluxDB != "" {
+		command = append(command,"--out")
+		command = append(command, "influxdb="+k.Spec.InfluxDB)
+	}
 	command = append(
 		command,
 		"/test/test.js",

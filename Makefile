@@ -53,6 +53,11 @@ deploy: manifests kustomize
 	cd config/manager && $(KUSTOMIZE) edit set image controller=${IMG}
 	$(KUSTOMIZE) build config/default | kubectl apply -f -
 
+# Generate manifests for manual Deployment
+generate-install: manifests kustomize
+	cd config/manager && $(KUSTOMIZE) edit set image controller=${IMG}
+	$(KUSTOMIZE) build config/default > deploy.yaml
+
 # Delete operator from a cluster
 delete: manifests kustomize
 	$(KUSTOMIZE) build config/default | kubectl delete -f -
